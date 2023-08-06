@@ -9,10 +9,17 @@ const handleEmail = (e) => {
   setEmail(e.target.value)
 }
 
-console.log(name, age, email)
+const handleSubmit = (e) => {
+  if (!name || !age || !email) {
+    alert('Please fill all the fields')
+  } else {
+    alert('Form submitted')
+  }
+}
+
   return (
     <div className=' text-center'>
-      <form className='space-y-4 w-80 m-auto mt-4'>
+      <form className='space-y-4 w-80 m-auto mt-4' onSubmit={handleSubmit}>
         <div className='flex flex-col space-y-2 '>
           <label htmlFor='name'>Nome:</label>
           <input className='p-2 rounded-sm text-zinc-700' placeholder='Digite seu Nome' type='text' id='name' onChange={(e) => setName(e.target.value)}/>
